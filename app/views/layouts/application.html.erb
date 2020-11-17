@@ -24,10 +24,10 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li class="nav-item">
-                Home
+                <%= link_to "Home", user_path(:id), class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                Users
+                <%= link_to "Users", users_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
                 Books
@@ -37,10 +37,10 @@
               </li>
               <% else %>
               <li class="nav-item">
-                Home
+                <%= link_to "Home", root_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
-                About
+                <%= link_to "About", homes_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
                 <%= link_to "sign up", new_user_registration_path, class: 'nav-link text-dark' %>
