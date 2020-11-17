@@ -18,8 +18,9 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-<% @books.each do |book| %>
+<% @users.each do |user| %>
+<%= user.name %>
 <div>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 </div>
 <% end %>
