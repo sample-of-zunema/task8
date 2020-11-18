@@ -1,25 +1,4 @@
-<h2>User info</h2>
-<%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
-<div class="profile-container">
-  <h3 class="profile-name">
-    <%= @user.name %>
-  </h3>
-  <h3 class="profile-introduction">
-    <%= @user.introduction %>
-  </h3>
-  <% if @user.id == current_user.id %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
-</div>
-
-<h1>New book</h1>
-<%= form_with model: @book, local: true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
+<%= render 'users/list', users: @users %>
 
 <% @users.each do |user| %>
 <%= user.name %>
