@@ -10,10 +10,9 @@
                     <tr>
                         <td>
                         <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg" %>
-
                         </td>
                         <td>
-                        <%= link_to book_path(current_user) do %>
+                        <%= link_to book_path(@book.id) do %>
                             <%= @book.title %>
                         <% end %>
                         </td>
