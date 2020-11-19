@@ -1,24 +1,24 @@
 <h2>User info</h2>
-<%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
+<%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %>
 <table class="table">
    <tbody>
     <tr>
        <th>name</th>
-       <th><%= @user.name %></th>
+       <th><%= user.name %></th>
     </tr>
      <tr>
      <th>introduction</th>
-      <th><%= @user.introduction %></th>
+      <th><%= user.introduction %></th>
      </tr>
    </tbody>
 </table>
-<% if @user.id == current_user.id %>
+<% if user.id == current_user.id %>
 <div class="row">
-  <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-default" %></p>
+  <p><%= link_to "プロフィール編集", edit_user_path(user), class: "btn btn-default" %></p>
 </div>
 <% end %>
 <h2>New book</h2>
-<%= form_with model:@book, local: true do |f| %>
+<%= form_with model:book, local: true do |f| %>
   <h6>Title</h6>
   <%= f.text_field :title %>
   <h6>Opinion</h6>

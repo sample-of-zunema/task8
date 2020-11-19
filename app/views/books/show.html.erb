@@ -1,1 +1,33 @@
-<h2>投稿詳細画面</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <%= render 'users/list', user: @user, book: @newbook %>
+        </div>
+        <div class="col-md-9">
+            <h2>Book detail</h2>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>
+                        <%= attachment_image_tag @user, :profile_image, format: 'jpeg', size: "30x30", fallback: "no_image.jpg" %>
+
+                        </td>
+                        <td>
+                        <%= link_to book_path(current_user) do %>
+                            <%= @book.title %>
+                        <% end %>
+                        </td>
+                        <td>
+                            <%= @book.body %>
+                        </td>
+                        <% if @book == current_user%>
+                        <td>
+                            <%= link_to "edit", edit_book_path(book), class: "btn btn-default" %>
+                        </td>
+                        <% end %>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
