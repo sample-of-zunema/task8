@@ -13,7 +13,6 @@
      </tr>
    </tbody>
 </table>
-<% if user.id == current_user.id %>
 <div class="row">
   <p>
     <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
@@ -21,7 +20,6 @@
     <% end %>
   </p>
 </div>
-<% end %>
 <h2>New book</h2>
 <%= form_with model:book, local: true do |f| %>
   <h6>Title</h6>

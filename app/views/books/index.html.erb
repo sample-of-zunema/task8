@@ -1,7 +1,7 @@
 <div class="container">
-  <% if @book.errors.any? %>
-    <%= @book.errors.count %> error
-    <% @book.errors.full_messages.each do |message| %>
+  <% if @newbook.errors.any? %>
+    <%= @newbook.errors.count %> error
+    <% @newbook.errors.full_messages.each do |message| %>
       <%= message %>
     <% end %>
   <% end %>
@@ -9,7 +9,7 @@
     <div class="col-md-3">
       <%= render 'users/list', user: @user, book: @newbook %>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8 offset-md-1">
       <p></p>
       <h2>Books</h2>
       <table class="table">
