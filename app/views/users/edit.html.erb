@@ -9,7 +9,7 @@
           <%= message %>
         <% end %>
       <% end %>
-
+     
       <%= form_with model:@user, local:true do |f| %>
         <h6 for="inputName">Name</h6>
         <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
