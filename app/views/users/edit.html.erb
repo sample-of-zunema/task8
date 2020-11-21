@@ -1,15 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-sm12 col-md8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <p></p>
       <h3>User info</h3>
       <%= form_with model:@user, local:true do |f| %>
         <h6 for="inputName">Name</h6>
         <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+        <p></p>
         <h6 for="inputImage">Image</h6>
         <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+        <p></p>
         <h6 for="inputIntroduction">Introduction</h6>
         <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"イントロダクション" %>
-        <%= f.submit "変更を保存" %>
+        <input type="submit" name="commit" value="Update User" class="btn btn-secondary" data-disable-with="Update User">
       <% end %>
     </div>
   </div>
