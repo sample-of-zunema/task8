@@ -3,6 +3,13 @@
     <div class="col-sm12 col-md8 col-lg-5 px-5 px-sm-0 mx-auto">
       <p></p>
       <h3>User info</h3>
+      <% if @user.errors.any? %>
+        <%= @user.errors.count %> error
+        <% @user.errors.full_messages.each do |message| %>
+          <%= message %>
+        <% end %>
+      <% end %>
+
       <%= form_with model:@user, local:true do |f| %>
         <h6 for="inputName">Name</h6>
         <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>

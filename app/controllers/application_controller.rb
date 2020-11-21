@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
     user_path(resource)
   end
 
+  def destroy
+    log_out if logged_in?
+    flash[:success] = "successfully"
+    redirect_to root_path
+  end
+
   protected
 
   def configure_permitted_parameters
