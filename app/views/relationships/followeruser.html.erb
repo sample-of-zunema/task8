@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <p></p>
+      <h3>Follower Users</h3>
+      <table class="table">
+      <tbody>
+        <tr>
+          <td>image</td>
+          <td>name</td>
+        </tr>
+        <tr>
+          <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+          <td><%= user.name %></td>
+          <td><%= "フォロー数: #{@user.follower.count}" %></td>
+          <td><%= "フォロワー数: #{@user.followed.count}" %></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
