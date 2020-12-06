@@ -13,28 +13,30 @@
      </tr>
      <tr>
        <th>フォロー数</th>
-       <th><%= user.follower.count %></th>
+       <th><%= link_to user.follower.count, followuser_user_path(user.id) %></th>
      </tr>
      <tr>
        <th>フォロワー数</th>
-       <th><%= user.followed.count %></th>
+       <th><%= link_to user.followed.count, followeruser_user_path(user.id) %></th>
      </tr>
    </tbody>
 </table>
 <div class="row">
   <p>
+  <% if @user.id == current_user.id %>
     <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
+  <% end %>
   </p>
 </div>
 <div class"row">
     <p>
         <% if @user.id != current_user.id %>
             <% if current_user.following?(user) %>
-                <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST %>
+                <%= link_to 'フォロー外す', unfollow_path(user.id), method: :POST, class: 'btn btn-info' %>
             <% else %>
-                <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
+                <%= link_to 'フォローする', follow_path(user.id), method: :POST, class: 'btn btn-info' %>
             <% end %>
         <% end %>
     </p>
