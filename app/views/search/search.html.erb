@@ -1,6 +1,131 @@
-<h1>Search#search</h1>
-<p>Find me in app/views/search/search.html.erb</p>
-
-<% @users.each do |user| %>
-  <%= user.name %>
-<% end %>
+<div class="container">
+    <div class="row">
+        <p></p>
+        <h3>Books search for <%= "#{params[:name]}" %></h3>
+        <table class="table">
+            <tbody>
+            <!--条件分岐・Userなら-->
+            <% if params[:model] == "User" %>
+                <!--条件分岐・完全一致なら-->
+                <% if params[:search_method] == "perfect_match" %>
+                    <tr>
+                        <td></td>
+                        <td>Name</td>
+                        <td>Introduction</td>
+                    </tr>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.introduction %></td>
+                        </tr>
+                    <% end %>
+                <!--条件分岐・前方一致なら-->
+                <% elsif params[:search_method] == "forward_match" %>
+                    <tr>
+                        <td></td>
+                        <td>Name</td>
+                        <td>Introduction</td>
+                    </tr>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.introduction %></td>
+                        </tr>
+                    <% end %>
+                <!--条件分岐・後方一致なら-->
+                <% elsif params[:search_method] == "backward_match" %>
+                    <tr>
+                        <td></td>
+                        <td>Name</td>
+                        <td>Introduction</td>
+                    </tr>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.introduction %></td>
+                        </tr>
+                    <% end %>
+                <!--条件分岐・部分一致なら-->
+                <% else %>
+                    <tr>
+                        <td></td>
+                        <td>Name</td>
+                        <td>Introduction</td>
+                    </tr>
+                    <% @users.each do |user| %>
+                        <tr>
+                            <td><%= attachment_image_tag user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= user.name %></td>
+                            <td><%= user.introduction %></td>
+                        </tr>
+                    <% end %>
+                <% end %>
+            <!--ここまで-->
+            <!--条件分岐・Bookなら-->
+            <% else %>
+                <!--条件分岐・完全一致なら-->
+                <% if params[:search_method] == "perfect_match" %>
+                    <tr>
+                        <td></td>
+                        <td>Title</td>
+                        <td>Opinion</td>
+                    </tr>
+                    <% @books.each do |book| %>
+                        <tr>
+                            <td><%= attachment_image_tag book.user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= book.title %></td>
+                            <td><%= book.body %></td>
+                        </tr>
+                    <% end %>
+                <!--条件分岐・前方一致なら-->
+                <% elsif params[:search_method] == "forward_match" %>
+                    <tr>
+                        <td></td>
+                        <td>Title</td>
+                        <td>Opinion</td>
+                    </tr>
+                    <% @books.each do |book| %>
+                        <tr>
+                            <td><%= attachment_image_tag book.user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= book.title %></td>
+                            <td><%= book.body %></td>
+                        </tr>
+                    <% end %>
+                <!--条件分岐・後方一致なら-->
+                <% elsif params[:search_method] == "backward_match" %>
+                    <tr>
+                        <td></td>
+                        <td>Title</td>
+                        <td>Opinion</td>
+                    </tr>
+                    <% @books.each do |book| %>
+                        <tr>
+                            <td><%= attachment_image_tag book.user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= book.title %></td>
+                            <td><%= book.body %></td>
+                        </tr>
+                    <% end %>
+                <!--条件分岐・部分一致なら-->
+                <% else %>
+                    <tr>
+                        <td></td>
+                        <td>Title</td>
+                        <td>Opinion</td>
+                    </tr>
+                    <% @books.each do |book| %>
+                        <tr>
+                            <td><%= attachment_image_tag book.user, :profile_image, format: 'jpeg', size: "100x100", fallback: "no_image.jpg" %></td>
+                            <td><%= book.title %></td>
+                            <td><%= book.body %></td>
+                        </tr>
+                    <% end %>
+                <% end %>
+            <!--ここまで-->
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
