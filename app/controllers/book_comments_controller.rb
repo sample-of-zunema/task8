@@ -6,6 +6,7 @@ class BookCommentsController < ApplicationController
     @book_comment.book_id = @book.id
     @book_comment.save
     @book_comments = @book.book_comments
+    @user = @book.user
   end
 
   def destroy

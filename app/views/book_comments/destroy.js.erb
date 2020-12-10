@@ -1,1 +1,2 @@
 $('.comment_table').html("<%= j(render 'books/comment_area', book_comments: @book_comments) %>");
+$('.detail_table').html("<%= j(render 'books/detail', user: @book.user, book: @book) %>");
